@@ -1,0 +1,23 @@
+{
+	"Project" : {		
+		"title": "Dadicated van delivery route refresh",
+		"description": "Automate route data refresh. Create microservices to get data from FMO royal mail internal system, write to staging sql db and apply updates route cosmos db",
+		"technologies": ["Azure fuction", "Azure sql server", "Entity Framework core", "Cosmos db", "terraform", "Azure DevOps" ],
+		"microservices": [
+			{
+				"title":"FmoFullExtractInitiator",
+				"Description": "Http trigger that initiate the process. Send message to service bus for another service to pick and perform the processing."
+			},
+			{
+				"title":"FmoFullExtractProcessor",
+				"Description": "Service bus trigger that fetch the full extract from internal system and write to azure sql db."
+			},
+			{
+				"title":"FmoPartialExtractProcessor",
+				"Description": "Timmer trigger that fetch the changed extract from internal system and update the azure sql db."
+			}		
+		]				
+	},
+	"activitesDone": ["Analysis", "Solution design", "Development", "Unit and manual testing in dev env", "Settping repository and branches", "Setting up CI/CD pipeline", "Create terraform scripts", "Backlog refinement", "Sprint planning", "Assist junior devlopers"]
+
+}

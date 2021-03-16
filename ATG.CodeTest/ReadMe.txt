@@ -1,0 +1,6 @@
+- created separate folder for repository and services, which in real case should go in to separate project
+- created interface for each service and repository, injected the dependancy in constructor (dependancy injection and interface segregation priciple in SOLID ) 
+- created adaptor for static date time now value, for unit testability
+- there could be single base interface IBaseLotRepository, but as of now there is no scenario where each repository need to reref by single base , so avoided eagar optimisation
+- retry and failover can ben done via Polly resiliancy package, so have created method for future optimisation
+- created IsArchived property on Lot object to indicate whether Lot has been archived or not
